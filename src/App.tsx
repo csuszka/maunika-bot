@@ -62,7 +62,7 @@ function App() {
 
       if (lineWords[1] === "PRIVMSG") {
         console.log(lineWords);
-        setLastDisplayedMessage(lineWords[3]);
+        setLastDisplayedMessage(line);
       }
     });
   }, [lastMessage?.data]);
