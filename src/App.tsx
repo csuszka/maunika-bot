@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import "./App.css";
 import useWebSocket from "react-use-websocket";
-import { useWhatChanged } from "@simbathesailor/use-what-changed";
+// import { useWhatChanged } from "@simbathesailor/use-what-changed";
 import { ErrorBoundary } from "react-error-boundary";
 import ErrorFallback from "./ui-components/ErrorFallback";
 
@@ -16,27 +16,24 @@ function App() {
   const TWITCH_NICK = import.meta.env.VITE_TWITCH_NICK as string;
   const TWITCH_CHANNEL = import.meta.env.VITE_TWITCH_CHANNEL as string;
 
-  const { sendMessage, lastMessage, readyState } = useWebSocket(
-    `${TWITCH_WEBSOCKET_URL}`,
-    {
-      share: true,
-      shouldReconnect: () => true,
-      onOpen: () => {
-        setCount(() => 0);
-        setOnlineUsers(() => []);
-        sendMessage(`PASS ${TWITCH_OAUTH}`);
-        sendMessage(`NICK ${TWITCH_NICK}`);
-        sendMessage(`JOIN #${TWITCH_CHANNEL}`);
+  const { sendMessage, lastMessage } = useWebSocket(`${TWITCH_WEBSOCKET_URL}`, {
+    share: true,
+    shouldReconnect: () => true,
+    onOpen: () => {
+      setCount(() => 0);
+      setOnlineUsers(() => []);
+      sendMessage(`PASS ${TWITCH_OAUTH}`);
+      sendMessage(`NICK ${TWITCH_NICK}`);
+      sendMessage(`JOIN #${TWITCH_CHANNEL}`);
 
-        sendMessage(`CAP REQ :twitch.tv/commands`);
-        // ws.send(`CAP REQ :twitch.tv/commands twitch.tv/tags`);
-        sendMessage(`CAP REQ :twitch.tv/membership`);
-      },
-    }
-  );
+      sendMessage(`CAP REQ :twitch.tv/commands`);
+      // ws.send(`CAP REQ :twitch.tv/commands twitch.tv/tags`);
+      sendMessage(`CAP REQ :twitch.tv/membership`);
+    },
+  });
 
   const lastMessageChecks = useCallback(() => {
-    const messageRows = lastMessage?.data?.split("\r\n");
+    const messageRows: string[] = lastMessage?.data?.split("\r\n");
     messageRows?.forEach((line: string) => {
       const lineWords: string[] = line.split(" ");
       const exclamationMarkIndex: number = lineWords[0].indexOf("!");
@@ -63,9 +60,20 @@ function App() {
       if (lineWords[1] === "PRIVMSG") {
         console.log(lineWords);
         setLastDisplayedMessage(line);
+
+        const command = lineWords[3].toLowerCase();
+        if (command === ":!banana") {
+          sendMessage(`PRIVMSG #${TWITCH_CHANNEL} :Pikachu! ⚡`);
+        }
+        if (command === ":!pikachu") {
+          sendMessage(`PRIVMSG #${TWITCH_CHANNEL} :Banana! 🍌`);
+        }
+        if (command === ":!medve") {
+          sendMessage(`PRIVMSG #${TWITCH_CHANNEL} :FUTÁÁÁÁS! 😭`);
+        }
       }
     });
-  }, [lastMessage?.data]);
+  }, [TWITCH_CHANNEL, lastMessage?.data, sendMessage]);
 
   useEffect(() => {
     if (lastMessage) {
@@ -73,17 +81,17 @@ function App() {
     }
   }, [lastMessage, lastMessageChecks]);
 
-  useWhatChanged(
-    [
-      onlineUsers,
-      count,
-      lastDisplayedMessage,
-      readyState,
-      lastMessage,
-      lastMessageChecks,
-    ],
-    "onlineUsers,count,lastDisplayedMessage,readyState,lastMessage,lastMessageChecks"
-  );
+  // useWhatChanged(
+  //   [
+  //     onlineUsers,
+  //     count,
+  //     lastDisplayedMessage,
+  //     readyState,
+  //     lastMessage,
+  //     lastMessageChecks,
+  //   ],
+  //   "onlineUsers,count,lastDisplayedMessage,readyState,lastMessage,lastMessageChecks"
+  // );
 
   return (
     <>
