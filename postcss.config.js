@@ -1,0 +1,1 @@
+export const plugins = [import('tailwindcss'), import('autoprefixer'), import("tailwindcss-debug-screens")];
