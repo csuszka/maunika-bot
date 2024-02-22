@@ -59,6 +59,11 @@ function App() {
 
       if (lineWords[1] === "PRIVMSG") {
         console.log(lineWords);
+
+        if (currentUser === "maunikabot") {
+          return;
+        }
+
         setLastDisplayedMessage(line);
 
         const command = lineWords[3].toLowerCase();
