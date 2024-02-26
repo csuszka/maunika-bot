@@ -70,19 +70,26 @@ function App() {
         if (command === ":!banana") {
           sendMessage(`PRIVMSG #${TWITCH_CHANNEL} :Pikachu! ⚡`);
         }
-        if (command === ":!pikachu") {
+
+        if (command === ":!potato") {
           sendMessage(`PRIVMSG #${TWITCH_CHANNEL} :Banana! 🍌`);
+        }
+
+        if (command === ":!pikachu") {
+          sendMessage(`PRIVMSG #${TWITCH_CHANNEL} :Pika-pikaaaaaaaa 💛`);
         }
         if (command === ":!medve") {
           sendMessage(`PRIVMSG #${TWITCH_CHANNEL} :FUTÁÁÁÁS! 😭`);
         }
 
         if (command === ":!hurka") {
-          sendMessage(`PRIVMSG #${TWITCH_CHANNEL} :De ne májasat!`);
+          sendMessage(`PRIVMSG #${TWITCH_CHANNEL} :De ne májasat! 🦇`);
         }
 
         if (command === ":!bánat") {
-          sendMessage(`PRIVMSG #${TWITCH_CHANNEL} :Te vagy egy bánat!`);
+          sendMessage(
+            `PRIVMSG #${TWITCH_CHANNEL} :Utca, utca, bánat utca 🎵 Bánat kővel van kirakva 🎵 Azt is tudom, hogy ki rakta 🎵 Hogy én járjak sírva rajta 🎵 Nem járok én sírva rajta 🎵 Nem járok én sírva rajta 🎵 Járjon, aki rakosgatta 🎵 Járjon, aki rakosgatta`
+          );
         }
       }
     });
