@@ -76,6 +76,14 @@ function App() {
         if (command === ":!medve") {
           sendMessage(`PRIVMSG #${TWITCH_CHANNEL} :FUTÁÁÁÁS! 😭`);
         }
+
+        if (command === ":!hurka") {
+          sendMessage(`PRIVMSG #${TWITCH_CHANNEL} :De ne májasat!`);
+        }
+
+        if (command === ":!bánat") {
+          sendMessage(`PRIVMSG #${TWITCH_CHANNEL} :Te vagy egy bánat!`);
+        }
       }
     });
   }, [TWITCH_CHANNEL, lastMessage?.data, sendMessage]);
