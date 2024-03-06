@@ -90,6 +90,24 @@ function App() {
           sendMessage(`PRIVMSG #${TWITCH_CHANNEL} :Mustárral és kenyérrel 🤤`);
         }
 
+        if (command === ":!kísértet") {
+          sendMessage(`PRIVMSG #${TWITCH_CHANNEL} :Ott a 👻 a 💩nál!`);
+        }
+
+        if (command === ":!teriyaki") {
+          sendMessage(`PRIVMSG #${TWITCH_CHANNEL} :Nyamm 🤩`);
+        }
+
+        if (command === ":!krumpli" || command === ":!burgonya") {
+          sendMessage(
+            `PRIVMSG #${TWITCH_CHANNEL} :🥔 Hasáb 🥔 Püré 🥔 Rakott 🥔 Petrezselymes 🥔 Tört 🥔 Töltött 🥔`
+          );
+        }
+
+        if (command === ":!lóf") {
+          sendMessage(`PRIVMSG #${TWITCH_CHANNEL} :Na de kérem! 😮`);
+        }
+
         if (command === ":!bánat") {
           sendMessage(
             `PRIVMSG #${TWITCH_CHANNEL} :Utca, utca, bánat utca 🎵 Bánat kővel van kirakva 🎵 Azt is tudom, hogy ki rakta 🎵 Hogy én járjak sírva rajta 🎵 Nem járok én sírva rajta 🎵 Nem járok én sírva rajta 🎵 Járjon, aki rakosgatta 🎵 Járjon, aki rakosgatta`
