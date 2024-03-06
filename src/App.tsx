@@ -108,6 +108,12 @@ function App() {
           sendMessage(`PRIVMSG #${TWITCH_CHANNEL} :Na de kérem! 😮`);
         }
 
+        if (command === ":!sushi") {
+          sendMessage(
+            `PRIVMSG #${TWITCH_CHANNEL} :Lazac-avokádó maki rendel! 🍣✨`
+          );
+        }
+
         if (command === ":!bánat") {
           sendMessage(
             `PRIVMSG #${TWITCH_CHANNEL} :Utca, utca, bánat utca 🎵 Bánat kővel van kirakva 🎵 Azt is tudom, hogy ki rakta 🎵 Hogy én járjak sírva rajta 🎵 Nem járok én sírva rajta 🎵 Nem járok én sírva rajta 🎵 Járjon, aki rakosgatta 🎵 Járjon, aki rakosgatta`
