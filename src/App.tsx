@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useState } from "react";
-import "./App.css";
 import useWebSocket from "react-use-websocket";
 // import { useWhatChanged } from "@simbathesailor/use-what-changed";
 import { ErrorBoundary } from "react-error-boundary";
@@ -119,6 +118,12 @@ function App() {
             `PRIVMSG #${TWITCH_CHANNEL} :Utca, utca, bánat utca 🎵 Bánat kővel van kirakva 🎵 Azt is tudom, hogy ki rakta 🎵 Hogy én járjak sírva rajta 🎵 Nem járok én sírva rajta 🎵 Nem járok én sírva rajta 🎵 Járjon, aki rakosgatta 🎵 Járjon, aki rakosgatta`
           );
         }
+
+        if (command === ":!elem") {
+          sendMessage(
+            `PRIVMSG #${TWITCH_CHANNEL} :Nem emelhetem el elemelem elemelhetetlen elemét, mert elemelem elemelhetetlen eleme elemelhetetlen!`
+          );
+        }
       }
     });
   }, [TWITCH_CHANNEL, lastMessage?.data, sendMessage]);
@@ -145,20 +150,16 @@ function App() {
     <>
       <ErrorBoundary FallbackComponent={ErrorFallback}>
         <div className="card">
-          <button>count is {count}</button>
+          <div>count is {count}</div>
           <div className="card">
             <p>{lastDisplayedMessage}</p>
           </div>
-          <div className="grid-cols-5 bg-red-600">
+          <div className="grid grid-cols-5 bg-red-600">
             {onlineUsers.map((user, index) => (
               <div key={index}>{"💚 " + user}</div>
             ))}
           </div>
         </div>
-
-        <p className="read-the-docs">
-          Click on the Vite and React logos to learn more
-        </p>
       </ErrorBoundary>
     </>
   );
