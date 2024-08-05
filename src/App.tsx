@@ -66,63 +66,83 @@ function App() {
         setLastDisplayedMessage(line);
 
         const command = lineWords[3].toLowerCase();
+
+        if (command === ":!lurk") {
+          sendMessage(`PRIVMSG #${TWITCH_CHANNEL} :Köszi szépen a lurköt! 🤗`);
+          return;
+        }
+
         if (command === ":!banana") {
           sendMessage(`PRIVMSG #${TWITCH_CHANNEL} :Pikachu! ⚡`);
+          return;
         }
 
         if (command === ":!potato") {
           sendMessage(`PRIVMSG #${TWITCH_CHANNEL} :Banana! 🍌`);
+          return;
         }
 
         if (command === ":!pikachu") {
           sendMessage(`PRIVMSG #${TWITCH_CHANNEL} :Pika-pikaaaaaaaa 💛`);
+          return;
         }
+
         if (command === ":!medve") {
           sendMessage(`PRIVMSG #${TWITCH_CHANNEL} :FUTÁÁÁÁS! 😭`);
+          return;
         }
 
         if (command === ":!hurka") {
           sendMessage(`PRIVMSG #${TWITCH_CHANNEL} :De ne májasat! 🦇`);
+          return;
         }
 
         if (command === ":!kolbász") {
           sendMessage(`PRIVMSG #${TWITCH_CHANNEL} :Mustárral és kenyérrel 🤤`);
+          return;
         }
 
         if (command === ":!kísértet") {
           sendMessage(`PRIVMSG #${TWITCH_CHANNEL} :Ott a 👻 a 💩nál!`);
+          return;
         }
 
         if (command === ":!teriyaki") {
           sendMessage(`PRIVMSG #${TWITCH_CHANNEL} :Nyamm 🤩`);
+          return;
         }
 
         if (command === ":!krumpli" || command === ":!burgonya") {
           sendMessage(
             `PRIVMSG #${TWITCH_CHANNEL} :🥔 Hasáb 🥔 Püré 🥔 Rakott 🥔 Petrezselymes 🥔 Tört 🥔 Töltött 🥔`
           );
+          return;
         }
 
         if (command === ":!lóf") {
           sendMessage(`PRIVMSG #${TWITCH_CHANNEL} :Na de kérem! 😮`);
+          return;
         }
 
         if (command === ":!sushi") {
           sendMessage(
             `PRIVMSG #${TWITCH_CHANNEL} :Lazac-avokádó maki rendel! 🍣✨`
           );
+          return;
         }
 
         if (command === ":!bánat") {
           sendMessage(
             `PRIVMSG #${TWITCH_CHANNEL} :Utca, utca, bánat utca 🎵 Bánat kővel van kirakva 🎵 Azt is tudom, hogy ki rakta 🎵 Hogy én járjak sírva rajta 🎵 Nem járok én sírva rajta 🎵 Nem járok én sírva rajta 🎵 Járjon, aki rakosgatta 🎵 Járjon, aki rakosgatta`
           );
+          return;
         }
 
         if (command === ":!elem") {
           sendMessage(
             `PRIVMSG #${TWITCH_CHANNEL} :Nem emelhetem el elemelem elemelhetetlen elemét, mert elemelem elemelhetetlen eleme elemelhetetlen!`
           );
+          return;
         }
       }
     });
